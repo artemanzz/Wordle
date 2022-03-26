@@ -1,0 +1,61 @@
+header {
+  border-bottom: 2px solid $grey_normal-color;
+  color: inherit;
+
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px;
+  margin-bottom: 32px;
+
+  .icon {
+    cursor: pointer;
+    font-size: 32px;
+    color: $grey_dark-color;
+    background: none;
+    border: none;
+
+    &:hover,
+    &:active {
+      color: darken($color: $grey_dark-color, $amount: 10)
+    }
+  }
+
+  >.icon {
+    @media (max-width: 440px) {
+      &:first-of-type {
+        margin: 0 20px 0 auto;
+      }
+    }
+  }
+
+  h1 {
+    color: inherit;
+    text-transform: uppercase;
+    font-size: 52px;
+    line-height: 1;
+    letter-spacing: 2px;
+
+    @media (max-width: 440px) {
+      order: -1;
+      font-size: 40px;
+    }
+
+    @media (max-width: 360px) {
+      font-size: 32px;
+    }
+  }
+}
+
+
+#mobileBurger {
+  @media (min-width: 440px) {
+    display: none;
+  }
+
+  @media (max-width: 440px) {
+    display: block;
+  }
+}

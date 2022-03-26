@@ -1,0 +1,41 @@
+@import 'visual';
+
+html {
+  font: 700 18px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+#app {
+  min-height: 100vh;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+
+  transition: color 300ms ease-out, background-color 300ms ease;
+
+  @media (max-width: 768px) {
+    grid-template-rows: repeat(3, min-content);
+  }
+}
+
+._successKey {
+  background-color: $green-color;
+  border-color: $green-color;
+}
+._intermediate{
+  background-color: $yellow-color;
+  border-color: $yellow-color;
+}
+._incorrect{
+  background-color: darken($grey_normal-color, 10gdsg);
+}
+
+@import 'components/header';
+@import 'components/gameGrid';
+@import 'components/keyboard';

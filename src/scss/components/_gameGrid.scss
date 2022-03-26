@@ -1,0 +1,17 @@
+#gameGrid {
+  color: $white-color;
+  display: grid;
+  grid-template: repeat(6, auto) / repeat(5, auto);
+  place-content: center;
+  gap: 4px;
+  user-select: none;
+  margin-bottom: 32px;
+
+  .row {
+    display: flex;
+    grid-column: span 5;
+    gap: inherit;
+  }
+
+  @import 'cell';
+}

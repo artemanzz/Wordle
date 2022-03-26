@@ -1,0 +1,102 @@
+.cell {
+  font-size: clamp(10px, 5vh, 40px);
+  line-height: 1;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 3px solid $grey_normal-color;
+
+  display: grid;
+  place-content: center;
+  width: clamp(30px, 8vh, 100px);
+  height: clamp(30px, 8vh, 100px);
+
+  transform-origin: center;
+
+  // States>>>
+
+  &.success {
+    @extend ._successKey;
+  }
+
+  &.intermediate {
+    @extend ._intermediate;
+  }
+
+  &.incorrect {
+    @extend ._incorrect;
+  }
+
+  &.typing {
+    animation: typing 100ms linear;
+  }
+
+  &.validating {
+    animation: flip 400ms linear;
+
+    &:nth-of-type(1) {
+      transition-property: background, border-color;
+      transition: 0ms 200ms linear;
+      animation-delay: 0ms;
+    }
+
+    &:nth-of-type(2) {
+      transition-property: background, border-color;
+      transition: 0ms 600ms linear;
+      animation-delay: 400ms;
+    }
+
+    &:nth-of-type(3) {
+      transition-property: background, border-color;
+      transition: 0ms 1000ms linear;
+      animation-delay: 800ms;
+    }
+
+    &:nth-of-type(4) {
+      transition-property: background, border-color;
+      transition: 0ms 1400ms linear;
+      animation-delay: 1200ms;
+    }
+
+    &:nth-of-type(5) {
+      transition-property: background, border-color;
+      transition: 0ms 1800ms linear;
+      animation-delay: 1600ms;
+    }
+  }
+}
+
+@keyframes typing {
+  25% {
+    transform: scale(1.1)
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  75% {
+    transform: scale(1.1)
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: scaleY(1);
+  }
+
+  40% {
+    transform: scaleY(0);
+  }
+
+  60% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}

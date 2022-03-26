@@ -1,0 +1,53 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Wordle
+    script(src="https://unpkg.com/phosphor-icons")
+    link(rel="stylesheet" href="css/style.min.css")
+
+  include pug/vars.pug
+
+  body
+    #app
+      header
+        button#help.icon
+          i.ph-question-bold
+        h1 Wordle
+        .icon-group(style="display: flex; gap: 20px;")
+          button#stats.icon
+            i.ph-chart-bar-bold
+          button#settings.icon
+            i.ph-gear-bold
+
+      #gameGrid
+        .row
+          .cell
+          .cell
+          .cell
+          .cell
+          .cell
+        - let n = 0
+        while n < 5
+          .row
+            .cell
+            .cell
+            .cell
+            .cell
+            .cell
+          - n++
+
+      #keyboard
+        mixin key(key)
+          -let keyText = key
+          -if (key == 'BACKSPACE') keyText = backspaceIcon
+          .key(data-key=key)!= keyText
+
+        each key of keys
+          +key(key)
+
+    audio#keyboard-type1(src="type1.mp3")
+    audio#keyboard-type2(src="type2.mp3")
+    script(src="js/app.min.js" type="module")

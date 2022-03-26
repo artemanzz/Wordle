@@ -1,0 +1,15 @@
+$black-color: #222222;
+$white-color: #f0f0f0;
+
+$grey_normal-color: #4e4e4e;
+$grey_light-color: #a0a0a0;
+$grey_dark-color: #8f8f8f;
+
+$green-color: #419100;
+$yellow-color: hsl(56, 100%, 40%);
+
+:root {
+  --text-color: #{$white-color};
+  --bg-color: #{$black-color};
+  --icon-color: #{$grey_normal-color};
+}

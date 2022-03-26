@@ -1,0 +1,60 @@
+#keyboard {
+  user-select: none;
+  display: grid;
+  grid-template: auto / repeat(20, 16px);
+  justify-content: center;
+  gap: 8px;
+
+  .key {
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+    background-color: $grey_light-color;
+    border-radius: 4px;
+
+    grid-column: auto/span 2;
+    display: grid;
+    place-content: center;
+    height: 68px;
+
+    &.success {
+      @extend ._successKey;
+    }
+
+    &.intermediate {
+      @extend ._intermediate;
+    }
+
+    &.incorrect {
+      @extend ._incorrect;
+    }
+
+    &:hover,
+    &:active {
+      background-color: darken($grey_light-color, 10);
+    }
+
+    &[data-key="a"] {
+      grid-column: 2 / span 2;
+    }
+
+    &[data-key="ENTER"],
+    &[data-key="BACKSPACE"] {
+      grid-column: auto / span 3;
+    }
+  }
+
+  .key i {
+    font-size: 32px;
+  }
+
+  @media (max-width: 520px) {
+    grid-template-columns: repeat(20, 2.5vw);
+
+    .key {
+      font-size: 14px;
+      height: 52px;
+    }
+  }
+}
