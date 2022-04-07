@@ -7,7 +7,7 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "dev": "gulp",
+    "start": "gulp",
     "build": "gulp build --build",
     "deploy": "gulp deploy --build",
     "gh-pages": "gh-pages -d build"

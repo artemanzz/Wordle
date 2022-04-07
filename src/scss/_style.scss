@@ -1,7 +1,9 @@
 @import 'visual';
 
 html {
-  font: 700 18px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font: 700 18px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
 }
 
 body {
@@ -28,14 +30,27 @@ body {
   background-color: $green-color;
   border-color: $green-color;
 }
-._intermediate{
+._intermediate {
   background-color: $yellow-color;
   border-color: $yellow-color;
 }
-._incorrect{
+._incorrect {
   background-color: darken($grey_normal-color, 10gdsg);
 }
+
+._hidden {
+  visibility: hidden;
+}
+
+._visible {
+  visibility: visible;
+}
+
+@import 'components/closeButton';
 
 @import 'components/header';
 @import 'components/gameGrid';
 @import 'components/keyboard';
+@import 'components/rules';
+@import 'components/stats';
+
