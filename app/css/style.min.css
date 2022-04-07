@@ -1,0 +1,469 @@
+:root {
+  --text-color: #f0f0f0;
+  --bg-color: #222222;
+  --icon-color: #4e4e4e;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+html {
+  font-size: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+a,
+textarea,
+input,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
+a,
+button,
+select {
+  cursor: pointer;
+}
+
+textarea,
+button,
+input {
+  border: 1px solid #000;
+}
+
+textarea,
+input {
+  resize: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+svg {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.embed,
+.fr-video {
+  position: relative;
+  overflow: hidden;
+}
+.embed::before,
+.fr-video::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+.embed iframe,
+.embed video,
+.embed embed,
+.fr-video iframe,
+.fr-video video,
+.fr-video embed {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+:root {
+  --text-color: #f0f0f0;
+  --bg-color: #222222;
+  --icon-color: #4e4e4e;
+}
+
+html {
+  font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+#app {
+  min-height: 100vh;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+  transition: color 300ms ease-out, background-color 300ms ease;
+}
+@media (max-width: 768px) {
+  #app {
+    grid-template-rows: repeat(3, min-content);
+  }
+}
+
+._successKey, #keyboard .key.success, .Cell.success {
+  background-color: #419100;
+  border-color: #419100;
+}
+
+._intermediate, #keyboard .key.intermediate, .Cell.intermediate {
+  background-color: #ccbe00;
+  border-color: #ccbe00;
+}
+
+._incorrect, #keyboard .key.incorrect, .Cell.incorrect {
+  background-color: #353535;
+}
+
+._hidden {
+  visibility: hidden;
+}
+
+._visible {
+  visibility: visible;
+}
+
+.CloseButton {
+  background: none;
+  border: none;
+  font-size: 2.4rem;
+  line-height: 1;
+  transform: scaleY(0.8);
+}
+
+header {
+  border-bottom: 2px solid #4e4e4e;
+  color: inherit;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 32px;
+}
+header .icon {
+  cursor: pointer;
+  font-size: 32px;
+  color: #8f8f8f;
+  background: none;
+  border: none;
+}
+header .icon:hover, header .icon:active {
+  color: #767676;
+}
+@media (max-width: 440px) {
+  header > .icon:first-of-type {
+    margin: 0 20px 0 auto;
+  }
+}
+header h1 {
+  color: inherit;
+  text-transform: uppercase;
+  font-size: 52px;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+@media (max-width: 440px) {
+  header h1 {
+    order: -1;
+    font-size: 40px;
+  }
+}
+@media (max-width: 360px) {
+  header h1 {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 440px) {
+  #mobileBurger {
+    display: none;
+  }
+}
+@media (max-width: 440px) {
+  #mobileBurger {
+    display: block;
+  }
+}
+
+#gameGrid {
+  color: #f0f0f0;
+  display: grid;
+  grid-template: repeat(6, auto)/repeat(5, auto);
+  place-content: center;
+  gap: 4px;
+  user-select: none;
+  margin-bottom: 32px;
+}
+#gameGrid .row {
+  display: flex;
+  grid-column: span 5;
+  gap: inherit;
+}
+
+.Cell {
+  font-size: clamp(10px, 5vh, 40px);
+  line-height: 1;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 3px solid #4e4e4e;
+  display: grid;
+  place-content: center;
+  width: clamp(30px, 8vh, 100px);
+  height: clamp(30px, 8vh, 100px);
+  transform-origin: center;
+}
+.Cell.typing {
+  animation: typing 100ms linear;
+}
+.Cell.validating {
+  animation: flip 400ms linear;
+}
+.Cell.validating:nth-of-type(1) {
+  transition-property: background, border-color;
+  transition: 0ms 200ms linear;
+  animation-delay: 0ms;
+}
+.Cell.validating:nth-of-type(2) {
+  transition-property: background, border-color;
+  transition: 0ms 600ms linear;
+  animation-delay: 400ms;
+}
+.Cell.validating:nth-of-type(3) {
+  transition-property: background, border-color;
+  transition: 0ms 1000ms linear;
+  animation-delay: 800ms;
+}
+.Cell.validating:nth-of-type(4) {
+  transition-property: background, border-color;
+  transition: 0ms 1400ms linear;
+  animation-delay: 1200ms;
+}
+.Cell.validating:nth-of-type(5) {
+  transition-property: background, border-color;
+  transition: 0ms 1800ms linear;
+  animation-delay: 1600ms;
+}
+
+@keyframes typing {
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes flip {
+  0% {
+    transform: scaleY(1);
+  }
+  40% {
+    transform: scaleY(0);
+  }
+  60% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+#keyboard {
+  user-select: none;
+  display: grid;
+  grid-template: auto/repeat(20, 16px);
+  justify-content: center;
+  gap: 8px;
+}
+#keyboard .key {
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  text-transform: uppercase;
+  background-color: #a0a0a0;
+  border-radius: 4px;
+  grid-column: auto/span 2;
+  display: grid;
+  place-content: center;
+  height: 68px;
+}
+#keyboard .key:hover, #keyboard .key:active {
+  background-color: #878787;
+}
+#keyboard .key[data-key=a] {
+  grid-column: 2/span 2;
+}
+#keyboard .key[data-key=ENTER], #keyboard .key[data-key=BACKSPACE] {
+  grid-column: auto/span 3;
+}
+#keyboard .key i {
+  font-size: 32px;
+}
+@media (max-width: 520px) {
+  #keyboard {
+    grid-template-columns: repeat(20, 2.5vw);
+  }
+  #keyboard .key {
+    font-size: 14px;
+    height: 52px;
+  }
+}
+
+#rules {
+  font-weight: 400;
+  font-size: 1rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #222222;
+  width: 100%;
+  height: 100vh;
+  padding-top: 1.2rem;
+  transition: 300ms ease-out;
+  user-select: none;
+}
+#rules .container {
+  max-width: 70vw;
+  position: relative;
+  margin: 0 auto;
+}
+#rules h2 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+#rules hr {
+  margin: 2rem 0;
+  opacity: 0.2;
+}
+#rules h3 {
+  margin-bottom: 1.2rem;
+}
+#rules .examples-grid {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 1.2rem;
+}
+#rules .examples-grid + span {
+  display: inline-block;
+  margin-bottom: 1.2rem;
+}
+#rules .grid-cell {
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 2rem;
+  height: 2rem;
+}
+#rules .close {
+  position: absolute;
+  top: -8px;
+  right: -32px;
+}
+#rules._hidden {
+  opacity: 0;
+  transform: translate(-50px);
+}
+#rules.visible {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(0);
+}
+
+#gameStats {
+  font-weight: 400;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center center;
+}
+#gameStats .container {
+  background-color: #222222;
+  height: 280px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 30px;
+  padding: 52px 10% 30px;
+  border-radius: 8px;
+  position: relative;
+}
+#gameStats h2 {
+  text-transform: uppercase;
+}
+#gameStats .stats {
+  display: inline-flex;
+  gap: 16px;
+}
+#gameStats .stat {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+  line-height: 1;
+}
+#gameStats .stat-number {
+  font-size: 2.6rem;
+}
+#gameStats .close {
+  position: absolute;
+  right: 20px;
+  top: 4px;
+}
+#gameStats::before {
+  content: "";
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+#gameStats ._hidden {
+  visibility: hidden;
+}
+#gameStats ._visible {
+  visibility: visible;
+}
+/*# sourceMappingURL=style.min.css.map */
