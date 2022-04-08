@@ -1,5 +1,5 @@
 import { getChildren, validateAttempt } from "../../functions/utils.js"
-import { Animations } from "../Animations.js"
+import { Animations } from "../addons/Animations.js"
 import { GridStorage } from "./GridStorage.js"
 
 export class Grid extends GridStorage {
@@ -74,23 +74,23 @@ export class Grid extends GridStorage {
       this.attempts[this.currentRow] = this.currentAttempt
       this.setAttemptsToStorage()
       Animations.flipping($cells)
-      validateAttempt(this.currentAttempt, this.goalWord, $cells)
+      let result = validateAttempt(this.currentAttempt, this.goalWord, $cells)
 
-      if (!this.isGameEnd(this.currentAttempt)) {
+      if (!this.isGameEnd(this.currentAttempt, result)) {
         this.currentRow += 1
         this.currentCell = 0
       }
     }
   }
 
-  isGameEnd(attempt) {
+  isGameEnd(attempt, result) {
     this._core.game.pause(2000)
     if (attempt == this.goalWord) {
-      this._core.game.win()
+      this._core.game.win(result)
       return true
     }
     if (this.currentRow == this.$rows.length - 1) {
-      this._core.game.lose()
+      this._core.game.lose(result)
       return true
     }
     return false

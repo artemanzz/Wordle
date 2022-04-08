@@ -24,7 +24,7 @@ header {
   }
 
   >.icon {
-    @media (max-width: 440px) {
+    @media (max-width: $bp-1) {
       &:first-of-type {
         margin: 0 20px 0 auto;
       }
@@ -38,7 +38,7 @@ header {
     line-height: 1;
     letter-spacing: 2px;
 
-    @media (max-width: 440px) {
+    @media (max-width: $bp-1) {
       order: -1;
       font-size: 40px;
     }
@@ -51,11 +51,11 @@ header {
 
 
 #mobileBurger {
-  @media (min-width: 440px) {
+  @media (min-width: $bp-1) {
     display: none;
   }
 
-  @media (max-width: 440px) {
+  @media (max-width: $bp-1) {
     display: block;
   }
 }

@@ -1,6 +1,7 @@
 import del from 'del'
 import dartSass from 'sass'
 import gulpSass from 'gulp-sass'
+import postcss from 'gulp-postcss'
 import rename from 'gulp-rename'
 import concat from 'gulp-concat'
 import cleanCss from 'gulp-clean-css'
@@ -12,32 +13,32 @@ const sass = gulpSass(dartSass)
 
 const settings = {
   sass: {
-    outputStyle: 'expanded'
+    outputStyle: 'expanded',
   },
   notify: {
     title: 'SASS',
-    message: 'Error: <%= error.message %>'
+    message: 'Error: <%= error.message %>',
   },
   rename: {
     ext: {
-      basename: "style",
-      extname: ".css"
+      basename: 'style',
+      extname: '.css',
     },
     min: {
-      basename: "style",
-      suffix: ".min",
-      extname: ".css"
-    }
+      basename: 'style',
+      suffix: '.min',
+      extname: '.css',
+    },
   },
   webpcss: {
-    webpClass: ".webp",
-    noWebpClass: ".no-webp"
+    webpClass: '.webp',
+    noWebpClass: '.no-webp',
   },
   autoprefixer: {
     grid: true,
     overrideBrowserslist: ['last 3 versions'],
-    cascade: true
-  }
+    cascade: true,
+  },
 }
 
 export function cssLibs() {
@@ -65,6 +66,7 @@ export function CSS() {
   return src(path.src.scss + 'index.scss', { sourcemaps: mode.isDev })
     .pipe(plumber(plumberOnError))
     .pipe(sass(settings.sass))
+    // .pipe(postcss([]))
 
     .pipe(_if(mode.isDev, sourcemaps.init()))
     .pipe(_if(mode.isBuild, groupCssMediaQueries()))

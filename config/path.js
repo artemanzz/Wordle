@@ -3,7 +3,7 @@ import * as node_Path from 'path'
 const _root = node_Path.basename(node_Path.resolve())
 
 const _src = 'src/'
-const _app = 'app/'
+const _app = 'public/'
 const _build = 'build/'
 const _config = 'config/'
 const _ftp = ''

@@ -1,6 +1,6 @@
-import { LocalStorage } from "./LocalStorage.js"
+import { LocalStorage } from "./addons/LocalStorage.js"
 import { Grid } from "./grid/Grid.js"
-import { Keyboard } from "./Keyboard.js"
+import { Keyboard } from "./addons/Keyboard.js"
 
 export class GameCore {
   constructor(root) {
