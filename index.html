@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle</title>
-    <script src="https://unpkg.com/phosphor-icons?_v=20220408215503"></script>
-    <link rel="stylesheet" href="css/style.min.css?_v=20220408215503">
+    <script src="https://unpkg.com/phosphor-icons?_v=20220408233329"></script>
+    <link rel="stylesheet" href="css/style.min.css?_v=20220408233329">
   </head>
   <body>
     <div id="app">
@@ -122,15 +122,23 @@
                 <button class="CloseButton close" id="statsClose">x</button>
         </div>
       </div>
-      <div class="Popup" id="message">
+      <div class="Popup _hidden" id="message">
         <div class="container">
           <h2>Great!</h2>
-          <p>The correct word was: <span id="correctWord">Hello</span></p>
+          <p>The correct word was:</p>
+          <div id="correctWord">
+            <div class="Cell incorrect">H</div>
+            <div class="Cell incorrect">e</div>
+            <div class="Cell intermediate">l</div>
+            <div class="Cell success">l</div>
+            <div class="Cell incorrect">o</div>
+          </div>
+                <button class="CloseButton close" id="messageClose">x</button>
         </div>
       </div>
     </div>
     <audio id="keyboard-type1" src="type1.mp3"></audio>
     <audio id="keyboard-type2" src="type2.mp3"></audio>
-    <script src="js/app.min.js?_v=20220408215503" type="module"></script>
+    <script src="js/app.min.js?_v=20220408233329" type="module"></script>
   </body>
 </html>
